@@ -1,5 +1,5 @@
-import subprocess
-results = subprocess.check_output("arp -a").decode("ascii").split("\n");
-for line in results:
-    if "dynamic" in line:
-        print(line)
+
+import re, uuid
+
+print ("The MAC address in formatted and less complex way is : ", end="")
+print (':'.join(re.findall('..', '%012x' % uuid.getnode())))
